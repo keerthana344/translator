@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polyglot - AI Code Translator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <header class="navbar">
+            <div class="logo">
+                <span class="logo-icon">⚡</span>
+                <h1>Polyglot</h1>
+            </div>
+            <div class="navbar-actions">
+                <button id="theme-toggle" class="icon-btn" aria-label="Toggle Theme">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+            </div>
+        </header>
+
+        <main class="workspace">
+            <!-- Source Panel -->
+            <section class="panel source-panel">
+                <div class="panel-header">
+                    <div class="language-select-wrapper">
+                        <select id="source-language" class="language-select">
+                            <option value="python">Python</option>
+                            <option value="javascript">JavaScript</option>
+                            <option value="java">Java</option>
+                            <option value="cpp">C++</option>
+                            <option value="go">Go</option>
+                            <option value="rust">Rust</option>
+                        </select>
+                    </div>
+                    <div class="panel-actions">
+                        <button class="icon-btn" id="copy-source" aria-label="Copy Source">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="editor-container">
+                    <textarea id="source-input" spellcheck="false" placeholder="Paste your code here..."></textarea>
+                    <div class="line-numbers" id="source-line-numbers">1</div>
+                </div>
+            </section>
+
+            <!-- Controls -->
+            <div class="controls">
+                <button id="translate-btn" class="translate-btn">
+                    <span class="btn-text">Translate</span>
+                    <span class="btn-icon">→</span>
+                    <div class="loader hidden"></div>
+                </button>
+            </div>
+
+            <!-- Target Panel -->
+            <section class="panel target-panel">
+                <div class="panel-header">
+                    <div class="language-select-wrapper">
+                        <select id="target-language" class="language-select">
+                            <option value="javascript" selected>JavaScript</option>
+                            <option value="python">Python</option>
+                            <option value="java">Java</option>
+                            <option value="cpp">C++</option>
+                            <option value="go">Go</option>
+                            <option value="rust">Rust</option>
+                        </select>
+                    </div>
+                    <div class="panel-actions">
+                        <button class="icon-btn" id="copy-target" aria-label="Copy Result">
+                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="editor-container">
+                    <textarea id="target-output" readonly spellcheck="false" placeholder="Translation will appear here..."></textarea>
+                    <div class="line-numbers" id="target-line-numbers">1</div>
+                </div>
+            </section>
+        </main>
+        
+        <footer class="statusbar">
+            <span id="status-text">Ready</span>
+            <span class="version">v1.0.0</span>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script type="module" src="app.js"></script>
+</body>
+</html>
